@@ -1,0 +1,11 @@
+#include<stdio.h>
+
+int main ()
+{
+	char nama[20];
+	printf ("Ketik nama anda : "); 
+	scanf ("%s", &nama); 
+	gets (nama); 
+	printf ("Nama anda : %s", nama); 
+	return 0;
+}
