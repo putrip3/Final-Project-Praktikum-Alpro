@@ -1,1 +1,59 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
 
+struct akun{//abstrak data tipe
+	char nama[50];
+	int pin;
+	int norek;
+	int saldo;
+};
+
+void banner()
+{
+	printf("=================================== \n");
+	printf("========ATM POWERPUF GIRLS========= \n");
+	printf("=================================== \n");
+}
+
+int main()
+{
+	int n,i,j,pin,pil,nom,saldo,jumnom,r,s,t;//inisialisasi variabel
+	char nama[50];//inisialisasi char nama 
+	struct akun input[j];//
+	start:
+	printf("\t\t+----------------------------------------------+ \n");
+	printf("\t\t\t         ATM POWERPUFF GIRLS            \t\t\n");
+	printf("\t\t+----------------------------------------------+\n");
+  printf("\t\t|                                              |\n");
+	printf("\t\t|             1. Buat Akun                     |\n");
+	printf("\t\t|             2. Login                         |\n");
+	printf("\t\t|             3. Exit                          |\n");
+	printf("\t\t|                                              |\n");
+	printf("\t\t|                                              |\n"); 
+	printf("\t\t|                                              |\n");
+	printf("\t\t|                                              |\n");
+	printf("\t\t|**********************************************|\n");
+	printf("\t\t================================================\n");
+	printf("\t\t\t Ketik pilihan : ");
+	scanf("%d",&n);
+	
+	if(n==1){//pengkondisian jika n==1
+		system("cls");//untuk menghapus layar
+		banner();
+		printf("\n");
+		printf("  ======== Membuat Akun ========= \n\n");
+		for(j=0;j<1;j++){//perulangan untuk menginput data nasabah
+			printf("Nama nasabah                    : ",j);
+			getchar();//ini digunakan agar nama nasabah dibaca semua
+			gets(input[j].nama); 
+			printf("Masukkan pin (angka)            :  ",j);
+			scanf("%d",&input[j].pin);
+			printf("Masukkan saldo (angka)          :  ",j);
+			scanf("%d",&input[j].saldo);
+			printf("Masukkan nomor rekening (angka) :  ",j);
+			scanf("%d",&input[j].norek);
+			printf("Data anda telah terdaftar, silahkan login\n");
+		}
+		goto start;//kembali ke awal(login ulang)
+	}
