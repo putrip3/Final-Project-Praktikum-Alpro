@@ -57,3 +57,73 @@ int main()
 		}
 		goto start;//kembali ke awal(login ulang)
 	}
+else if(n==2){//pengkondisian jika n==2
+		system("cls");//untuk menghapus layar
+		banner();
+		printf("Silahkan Login\n");
+		printf("Ketik Pin :");
+		scanf("%d",&pin);
+		for(i=0;i<1;i++){//perulangan untuk menampilkan data nasabah
+			if(pin==input[i].pin){
+				system("cls");
+				banner();
+				printf("\n");
+				printf("  ======== Data Nasabah ========= \n\n");
+				printf("Nama Nasabah   : %s \n",input[i].nama);
+				printf("Nomor Rekening : %d \n",input[i].norek);
+				printf("Nomor Pin      : %d \n",input[i].pin);
+				printf("Saldo          : %d \n",input[i].saldo);
+				printf("\n");
+				layanan:
+					printf("Pilihan Layanan\n");
+					printf("1. Tarik Tunai\n");
+					printf("2. Transfer\n");
+					printf("3. Setor Tunai\n");
+					printf("4. Cek Saldo\n");
+					printf("5. Exit\n");
+					printf("Pilih layanan :");
+					scanf("%d",&pil);
+					switch(pil)//pengkondisian 
+					{
+						case 1://pengkondisian pertama
+							system("cls");
+							banner();
+							printf("\n");
+							printf("  ======== Tarik Tunai ========= \n\n");
+							printf("Pilih nominal yang ingin anda ambil: \n");
+							printf("  1. 50000\n");
+							printf("  2. 100000\n");
+							printf("  3. 500000\n");
+							printf("  4. 1000000\n");
+							printf("  5. Nominal lain\n");
+							printf("Pilih : ");
+							printf("\n");
+							scanf("%d",&nom);
+							if(nom==1){//pengkondisian jika memilih pilihan 1, maka
+								if(50000 > input[i].saldo){//jika 50.000 lebih besar dari saldo yang kita input, maka
+									printf("Saldo anda kurang!\n");//akan diinputkan/ditampilkan saldo anda kurang
+									goto layanan;//lalu kembali ke layanan atau menu utama 
+								}
+								else{
+									printf("Keluar      = 50000 \n");//uang keluar							
+								    saldo = input[i].saldo - 50000;//maka saldo berkurang
+								    input[i].saldo = saldo;//sisa saldo
+								    printf("Saldo anda  = %d",saldo);//maka akan ditampilkan saldo anda
+								    printf("\n");
+								    goto konfirmasi;//diarahkan ke konformasi
+								}
+							}
+							else if(nom==2){//pengkondisian kedua jika memilih pilihan 2, maka
+								if(100000 > input[i].saldo){//
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 100000 \n");
+								    saldo = input[i].saldo - 100000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
