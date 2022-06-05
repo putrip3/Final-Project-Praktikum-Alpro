@@ -127,3 +127,66 @@ else if(n==2){//pengkondisian jika n==2
 								    goto konfirmasi;
 								}
 							}
+							else if(nom==3){
+								if(500000 > input[i].saldo){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 500000 \n");
+								    saldo = input[i].saldo - 500000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+							else if(nom==4){
+								if(1000000 > input[i].saldo){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 1000000 \n");
+								    saldo = input[i].saldo - 1000000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+							else{
+								printf("Ketik nominal =");
+								scanf("%d",&jumnom);
+								if(input[i].saldo < jumnom){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = %d \n",jumnom);
+								    saldo = input[i].saldo - jumnom;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+						case 2: 
+							system("cls");
+							banner();
+							printf("\n");
+						case2:
+							printf("  ======== Transfer ========= \n\n");
+							printf("Ketik nama penerima          :");
+							fflush(stdin);
+							gets(nama);
+							printf("Ketik nomor rekening penerima:");
+							scanf("%d",&s);
+							printf("Ketik nominal transfer       =");
+							scanf("%d",&t);
+							printf("\n");
+							if(t>input[i].saldo){
+								printf("Saldo anda kurang\n");
+								goto layanan;
+								
+							}
