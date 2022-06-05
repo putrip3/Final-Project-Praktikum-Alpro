@@ -25,7 +25,7 @@ int main()
 	printf("\t\t+----------------------------------------------+ \n");
 	printf("\t\t\t         ATM POWERPUFF GIRLS            \t\t\n");
 	printf("\t\t+----------------------------------------------+\n");
-  printf("\t\t|                                              |\n");
+  	printf("\t\t|                                              |\n");
 	printf("\t\t|             1. Buat Akun                     |\n");
 	printf("\t\t|             2. Login                         |\n");
 	printf("\t\t|             3. Exit                          |\n");
@@ -57,7 +57,7 @@ int main()
 		}
 		goto start;//kembali ke awal(login ulang)
 	}
-else if(n==2){//pengkondisian jika n==2
+	else if(n==2){//pengkondisian jika n==2
 		system("cls");//untuk menghapus layar
 		banner();
 		printf("Silahkan Login\n");
@@ -175,7 +175,6 @@ else if(n==2){//pengkondisian jika n==2
 							system("cls");
 							banner();
 							printf("\n");
-						case2:
 							printf("  ======== Transfer ========= \n\n");
 							printf("Ketik nama penerima          :");
 							fflush(stdin);
@@ -190,3 +189,80 @@ else if(n==2){//pengkondisian jika n==2
 								goto layanan;
 								
 							}
+							else{
+								printf("Transaksi berhasil!\n");
+								printf("Nama penerima    : %s",nama);
+								printf("\n");
+								printf("Rekening penerima: %d",s);
+								printf("\n");
+								printf("Jumlah transfer  = %d",t);
+								printf("\n");
+								saldo = input[i].saldo - t;
+								input[i].saldo = saldo;
+								printf("Sisa saldo       = %d",saldo);
+								printf("\n");
+								goto konfirmasi;
+							}
+						case 3:
+							system("cls");
+							banner();
+							printf("\n");
+							printf("  ======== Setor Tunai ========= \n\n");
+							printf("Masukkan uang anda dengan rapi!\n");
+							printf("Ketik jumlah setoran =");
+							scanf("%d",&t);
+							printf("\n");
+							printf("Uang berhasil masuk\n");
+							printf("Setoran anda = %d",t);
+							printf("\n");
+							saldo = input[i].saldo + t;
+							input[i].saldo = saldo;
+							printf("Saldo anda  = %d",saldo);
+							printf("\n");
+							goto konfirmasi;
+						case 4:
+							system("cls");
+							banner();
+							printf("\n");
+							printf("  ======== Cek Saldo ========= \n\n");
+							printf("Saldo anda = %d",input[i].saldo);
+							printf("\n");
+							goto konfirmasi;
+						case 5:
+							system("cls");
+							banner();
+							printf("EXIT");
+							
+					}
+						
+					konfirmasi:
+					printf("\n");
+					printf("Apakah ingin melakukan transaksi lain?\n");
+					printf("Pilihan :\n");
+					printf(" 1. Ya\n");
+					printf(" 2. Tidak\n");
+					printf("Ketik pilihan: ");
+					scanf("%d",&r);
+					if(r==1){
+						goto layanan;
+					}
+					else{
+						system("cls");
+						printf("EXIT\n");
+						printf("==== Semoga Harimu Menyenangkan ====");
+					}		
+			}	
+			else{
+				printf("pin salah, silakan kembali ke menu utama\n");
+				goto start; 
+			}
+		}
+		
+	}
+	else {
+		system("cls");
+		printf("EXIT\n");
+		printf("Terimakasih Telah Mengunjungi ATM POWERPUFF GIRLS");
+	}
+	return 0;
+}
