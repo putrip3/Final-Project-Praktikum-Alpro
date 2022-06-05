@@ -1,11 +1,271 @@
-#include<stdio.h>
+#include <stdio.h>
+#include <string.h>
 
-int main ()
+struct akun{
+	char nama[50];
+	int pin;
+	int norek;
+	int saldo;
+};
+
+void banner()
 {
-	char nama[20];
-	printf ("Ketik nama anda : "); 
-	scanf ("%s", &nama); 
-	gets (nama); 
-	printf ("Nama anda : %s", nama); 
+	printf("=================================== \n");
+	printf("========ATM POWERPUF GIRLS========= \n");
+	printf("=================================== \n");
+}
+
+int main()
+{
+	int n,i,j,pin,pil,nom,saldo,jumnom,r,s,t;
+	char nama[50];
+	struct akun input[j];
+	start:
+	printf("\t\t+----------------------------------------------+ \n");
+	printf("\t\t\t         ATM POWERPUFF GIRLS            \t\t\n");
+	printf("\t\t+----------------------------------------------+\n");
+   	printf("\t\t|                                              |\n");
+	printf("\t\t|             1. Buat Akun                     |\n");
+	printf("\t\t|             2. Login                         |\n");
+	printf("\t\t|             3. Exit                          |\n");
+	printf("\t\t|                                              |\n");
+	printf("\t\t|                                              |\n"); 
+	printf("\t\t|                                              |\n");
+	printf("\t\t|                                              |\n");
+	printf("\t\t|**********************************************|\n");
+	printf("\t\t================================================\n");
+	printf("\t\t\t Ketik pilihan : ");
+	scanf("%d",&n);
+	
+	if(n==1){
+		system("cls");
+		banner();
+		printf("\n");
+		printf("  ======== Membuat Akun ========= \n\n");
+		for(j=0;j<1;j++){
+			printf("Nama nasabah                    : ",j);
+			getchar();
+			gets(input[j].nama);
+			printf("Masukkan pin (angka)            :  ",j);
+			scanf("%d",&input[j].pin);
+			printf("Masukkan saldo (angka)          :  ",j);
+			scanf("%d",&input[j].saldo);
+			printf("Masukkan nomor rekening (angka) :  ",j);
+			scanf("%d",&input[j].norek);
+			printf("Data anda telah terdaftar, silahkan login\n");
+		}
+		goto start;
+	}
+	else if(n==2){
+		system("cls");
+		banner();
+		printf("Silahkan Login\n");
+		printf("Ketik Pin :");
+		scanf("%d",&pin);
+		for(i=0;i<1;i++){
+			if(pin==input[i].pin){
+				system("cls");
+				banner();
+				printf("\n");
+				printf("  ======== Data Nasabah ========= \n\n");
+				printf("Nama Nasabah   : %s \n",input[i].nama);
+				printf("Nomor Rekening : %d \n",input[i].norek);
+				printf("Nomor Pin      : %d \n",input[i].pin);
+				printf("Saldo          : %d \n",input[i].saldo);
+				printf("\n");
+				layanan:
+					printf("Pilihan Layanan\n");
+					printf("1. Tarik Tunai\n");
+					printf("2. Transfer\n");
+					printf("3. Setor Tunai\n");
+					printf("4. Cek Saldo\n");
+					printf("5. Exit\n");
+					printf("Pilih layanan :");
+					scanf("%d",&pil);
+					switch(pil)
+					{
+						case 1:
+							system("cls");
+							banner();
+							printf("\n");
+						case1:
+							printf("  ======== Tarik Tunai ========= \n\n");
+							printf("Pilih nominal yang ingin anda ambil: \n");
+							printf("  1. 50000\n");
+							printf("  2. 100000\n");
+							printf("  3. 500000\n");
+							printf("  4. 1000000\n");
+							printf("  5. Nominal lain\n");
+							printf("Pilih : ");
+							printf("\n");
+							scanf("%d",&nom);
+							if(nom==1){
+								if(50000 > input[i].saldo){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 50000 \n");							
+								    saldo = input[i].saldo - 50000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+							else if(nom==2){
+								if(100000 > input[i].saldo){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 100000 \n");
+								    saldo = input[i].saldo - 100000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+							else if(nom==3){
+								if(500000 > input[i].saldo){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 500000 \n");
+								    saldo = input[i].saldo - 500000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+							else if(nom==4){
+								if(1000000 > input[i].saldo){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = 1000000 \n");
+								    saldo = input[i].saldo - 1000000;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+							else{
+								printf("Ketik nominal =");
+								scanf("%d",&jumnom);
+								if(input[i].saldo < jumnom){
+									printf("Saldo anda kurang!\n");
+									goto layanan;
+								}
+								else{
+									printf("Keluar      = %d \n",jumnom);
+								    saldo = input[i].saldo - jumnom;
+								    input[i].saldo = saldo;
+								    printf("Saldo anda  = %d",saldo);
+								    printf("\n");
+								    goto konfirmasi;
+								}
+							}
+						case 2: 
+							system("cls");
+							banner();
+							printf("\n");
+						case2:
+							printf("  ======== Transfer ========= \n\n");
+							printf("Ketik nama penerima          :");
+							fflush(stdin);
+							gets(nama);
+							printf("Ketik nomor rekening penerima:");
+							scanf("%d",&s);
+							printf("Ketik nominal transfer       =");
+							scanf("%d",&t);
+							printf("\n");
+							if(t>input[i].saldo){
+								printf("Saldo anda kurang\n");
+								goto layanan;
+								
+							}
+							else{
+								printf("Transaksi berhasil!\n");
+								printf("Nama penerima    : %s",nama);
+								printf("\n");
+								printf("Rekening penerima: %d",s);
+								printf("\n");
+								printf("Jumlah transfer  = %d",t);
+								printf("\n");
+								saldo = input[i].saldo - t;
+								input[i].saldo = saldo;
+								printf("Sisa saldo       = %d",saldo);
+								printf("\n");
+								goto konfirmasi;
+							}
+						case 3:
+							system("cls");
+							banner();
+							printf("\n");
+						case3:
+							printf("  ======== Setor Tunai ========= \n\n");
+							printf("Masukkan uang anda dengan rapi!\n");
+							printf("Ketik jumlah setoran =");
+							scanf("%d",&t);
+							printf("\n");
+							printf("Uang berhasil masuk\n");
+							printf("Setoran anda = %d",t);
+							printf("\n");
+							saldo = input[i].saldo + t;
+							input[i].saldo = saldo;
+							printf("Saldo anda  = %d",saldo);
+							printf("\n");
+							goto konfirmasi;
+						case 4:
+							system("cls");
+							banner();
+							printf("\n");
+						case4:
+							printf("  ======== Cek Saldo ========= \n\n");
+							printf("Saldo anda = %d",input[i].saldo);
+							printf("\n");
+							goto konfirmasi;
+						case 5:
+							system("cls");
+							banner();
+							printf("EXIT");
+							
+					}
+						
+					konfirmasi:
+					printf("\n");
+					printf("Apakah ingin melakukan transaksi lain?\n");
+					printf("Pilihan :\n");
+					printf(" 1. Ya\n");
+					printf(" 2. Tidak\n");
+					printf("Ketik pilihan: ");
+					scanf("%d",&r);
+					if(r==1){
+						goto layanan;
+					}
+					else{
+						system("cls");
+						printf("EXIT\n");
+						printf("==== Semoga Harimu Menyenangkan ====");
+					}		
+			}	
+			else{
+				printf("pin salah, silakan kembali ke menu utama\n");
+				goto start; 
+			}
+		}
+		
+	}
+	else {
+		system("cls");
+		printf("EXIT\n");
+		printf("Terimakasih Telah Mengunjungi ATM POWERPUFF GIRLS");
+	}
 	return 0;
 }
