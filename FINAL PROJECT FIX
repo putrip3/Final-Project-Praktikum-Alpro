@@ -43,7 +43,7 @@ int main()
 		banner();
 		printf("\n");
 		printf("  ======== Membuat Akun ========= \n\n");
-		for(j=0;j<=1;j++){//perulangan untuk menginput data nasabah
+		for(j=0;j<1;j++){//perulangan untuk menginput data nasabah
 			printf("Nama nasabah                    : ",j);
 			getchar();//ini digunakan agar nama nasabah dibaca semua
 			gets(input[j].nama); 
@@ -63,6 +63,7 @@ int main()
 		printf("Silahkan Login\n");
 		printf("Ketik Pin :");
 		scanf("%d",&pin);
+		for(i=0;i<1;i++){//perulangan untuk menampilkan data nasabah
 			if(pin==input[i].pin){
 				system("cls");
 				banner();
@@ -250,7 +251,7 @@ int main()
 						printf("EXIT\n");
 						printf("==== Semoga Harimu Menyenangkan ====");
 					}		
-				
+			}	
 			else{
 				printf("pin salah, silakan kembali ke menu utama\n");
 				goto start; 
